@@ -29,16 +29,16 @@ don't have to grab your phone and look it up.
 - 📴 **Works offline.** About 275,000 movies and series (every title with 50+ votes) ship inside the app in a 21 MB lookup file. The app has no internet permission at all.
 - 🌎 **Localized titles.** It also knows the Brazilian titles, so *Ruptura* finds *Severance*. The badge follows your TV's language (Portuguese or English).
 - 🎯 **Picks the right film.** When several titles share a name, the year and the type (series or movie) decide.
-- 🪶 **Featherweight.** It has no launcher icon, no settings screen and no background downloads. It is a small accessibility service that only listens to the Apple TV app.
+- ⚡ **Featherweight.** It has no launcher icon, no settings screen and no background downloads. It is a small accessibility service that only listens to the Apple TV app.
 - 🧹 **Out of the way.** The badge disappears after 10 s, when focus moves off a title, or when another app comes to the front.
 
 ## Compatibility
 
 | App | Status | Notes |
 |---|---|---|
-| <img src="https://img.shields.io/badge/-Apple%20TV-000000?logo=appletv&logoColor=white" alt=""> Apple TV | ✅ **Works** | Tested with the app in Portuguese. English UI support was added in v1.2 but hasn't been tested on a TV yet, so [tell us](../../issues) if it works for you. |
-| <img src="https://img.shields.io/badge/-Netflix-E50914?logo=netflix&logoColor=white" alt=""> Netflix | ❌ No | The app does not expose titles to Android accessibility (tested). |
-| <img src="https://img.shields.io/badge/-HBO%20Max-5822B4?logoColor=white" alt=""> HBO Max | ❌ No | Same: no titles exposed (tested). |
+| <img src="https://img.shields.io/badge/-Apple%20TV-000000?logo=appletv&logoColor=white" alt="Apple TV"> | ✅ **Works** | Tested with the app in Portuguese. English UI support was added in v1.2 but hasn't been tested on a TV yet, so [tell us](../../issues) if it works for you. |
+| <img src="https://img.shields.io/badge/-Netflix-E50914?logo=netflix&logoColor=white" alt="Netflix"> | ❌ No | The app does not expose titles to Android accessibility (tested). |
+| <img src="https://img.shields.io/badge/-HBO%20Max-5822B4?logoColor=white" alt="HBO Max"> | ❌ No | Same: no titles exposed (tested). |
 | Prime Video, Disney+, Google TV home, others | ❔ Untested | If an app exposes titles to accessibility, adding it takes a few lines. [Open an issue](../../issues). |
 
 **TVs:** any Android TV or Google TV running **Android 8.0 or newer**. It was developed on a TCL Android TV 9 (720p).
@@ -118,7 +118,7 @@ you can switch USB debugging off again.
 
 ```mermaid
 flowchart LR
-    A[Apple TV app<br>focus moves to a tile] -->|accessibility event<br>&quot;7, Severance, Thriller&quot;| B[TitleParser<br>extracts the title]
+    A[Apple TV app<br>focus moves to a tile] -->|"accessibility event<br>'7, Severance, Thriller'"| B[TitleParser<br>extracts the title]
     B --> C[Resolver<br>name + year + type]
     C -->|binary search| D[(imdb.tsv<br>~275k titles, offline)]
     D --> E[Badge overlay<br>IMDb 8.6 /10]

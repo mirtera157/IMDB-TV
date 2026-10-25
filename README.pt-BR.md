@@ -29,16 +29,16 @@ pegar o celular para pesquisar.
 - 📴 **Funciona sem internet.** Cerca de 275 mil filmes e séries (todo título com 50+ votos) vão dentro do app, num arquivo de 21 MB. O app nem tem permissão de internet.
 - 🇧🇷 **Entende os nomes em português.** Conhece os títulos brasileiros, então *Ruptura* encontra *Severance*.
 - 🎯 **Acha o filme certo.** Quando vários títulos têm o mesmo nome, quem decide é o ano e o tipo (série ou filme).
-- 🪶 **Levinho.** Não tem ícone, tela de configuração nem downloads. É um pequeno serviço de acessibilidade que só escuta o app Apple TV.
+- ⚡ **Levinho.** Não tem ícone, tela de configuração nem downloads. É um pequeno serviço de acessibilidade que só escuta o app Apple TV.
 - 🧹 **Não atrapalha.** O selo some depois de 10 s, quando o foco sai do título ou quando outro app abre.
 
 ## Apps compatíveis
 
 | App | Funciona? | Observação |
 |---|---|---|
-| <img src="https://img.shields.io/badge/-Apple%20TV-000000?logo=appletv&logoColor=white" alt=""> Apple TV | ✅ **Sim** | Testado com o app em português. O suporte ao app em inglês entrou na v1.2, mas ainda não foi testado numa TV. |
-| <img src="https://img.shields.io/badge/-Netflix-E50914?logo=netflix&logoColor=white" alt=""> Netflix | ❌ Não | O app não informa os títulos para a acessibilidade do Android (testado). |
-| <img src="https://img.shields.io/badge/-HBO%20Max-5822B4?logoColor=white" alt=""> HBO Max | ❌ Não | Também não informa os títulos (testado). |
+| <img src="https://img.shields.io/badge/-Apple%20TV-000000?logo=appletv&logoColor=white" alt="Apple TV"> | ✅ **Sim** | Testado com o app em português. O suporte ao app em inglês entrou na v1.2, mas ainda não foi testado numa TV. |
+| <img src="https://img.shields.io/badge/-Netflix-E50914?logo=netflix&logoColor=white" alt="Netflix"> | ❌ Não | O app não informa os títulos para a acessibilidade do Android (testado). |
+| <img src="https://img.shields.io/badge/-HBO%20Max-5822B4?logoColor=white" alt="HBO Max"> | ❌ Não | Também não informa os títulos (testado). |
 | Prime Video, Disney+, Globoplay, outros | ❔ Não testados | Se o app informar os títulos, dá para adicionar com poucas linhas. [Abra uma issue](../../issues). |
 
 **TVs:** qualquer Android TV ou Google TV com **Android 8.0 ou mais novo**. Foi desenvolvido numa TCL com Android TV 9 (720p).
@@ -116,7 +116,7 @@ No fim, você pode desligar a Depuração USB de novo.
 
 ```mermaid
 flowchart LR
-    A[App Apple TV<br>o foco vai para um título] -->|evento de acessibilidade<br>&quot;7, Ruptura, Suspense&quot;| B[TitleParser<br>tira o nome]
+    A[App Apple TV<br>o foco vai para um título] -->|"evento de acessibilidade<br>'7, Ruptura, Suspense'"| B[TitleParser<br>tira o nome]
     B --> C[Resolver<br>nome + ano + tipo]
     C -->|busca binária| D[(imdb.tsv<br>~275 mil títulos, offline)]
     D --> E[Selo na tela<br>IMDb 8,6 /10]
