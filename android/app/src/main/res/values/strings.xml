@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notas IMDb</string>
+    <string name="service_description">Mostra a nota do IMDb do título selecionado no app Apple TV e no Saimo TV.</string>
+</resources>

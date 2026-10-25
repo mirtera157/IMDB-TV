@@ -1,0 +1,18 @@
+# Python environment and the ADB key it generates: the key opens a shell on every TV that trusted it
+tools/venv/
+tools/adbkey/
+__pycache__/
+
+# Android build output and machine-specific settings
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+
+# The APK ships in GitHub Releases, not in the tree
+apk/
+*.apk
+
+# Raw IMDb dumps used by scripts/build_db.py (~700 MB)
+data/
+.DS_Store

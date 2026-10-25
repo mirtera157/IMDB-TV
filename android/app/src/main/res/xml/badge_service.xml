@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Only the Apple TV and Saimo TV apps. The Apple TV app's UI engine moves accessibility focus (and so
+     names the focused tile) only with these event types and flags, the set uiautomator connects with;
+     with just the focus event types it sends nothing (tested on the TCL UnionTV, Oct 2026). Saimo TV
+     is a native app and needs nothing special. BadgeService ignores the other events. -->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagIncludeNotImportantViews|flagReportViewIds|flagRetrieveInteractiveWindows"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/service_description"
+    android:notificationTimeout="80"
+    android:packageNames="com.apple.atve.androidtv.appletv,br.com.saimo.tv" />
