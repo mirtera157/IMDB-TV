@@ -7,7 +7,8 @@ set -euo pipefail
 [ $# -ge 1 ] || { echo "usage: $0 <TV IP> [--uninstall]" >&2; exit 2; }
 export TV_HOST="$1" MSYS_NO_PATHCONV=1
 UNINSTALL="${2:-}"
-HERE="$(cd "$(dirname "$0")" && pwd)"
+# Git Bash: pwd -W gives C:/... paths, which a Windows Python can open with MSYS_NO_PATHCONV set.
+HERE="$(cd "$(dirname "$0")" && { pwd -W 2>/dev/null || pwd; })"
 VENV="$HERE/tools/venv"
 APK="$HERE/apk/IMDB-TV.apk"
 APK_URL="https://github.com/mirtera157/IMDB-TV/releases/latest/download/IMDB-TV.apk"
@@ -18,7 +19,13 @@ step() { printf '\n== %s\n' "$1"; }
 PY="$VENV/bin/python"; [ -x "$PY" ] || PY="$VENV/Scripts/python.exe"
 if [ ! -x "$PY" ]; then
     step "Setting up Python (first run only)"
-    BASE="$(command -v python3 || command -v python || true)"
+    # Windows has fake python3/python launchers that only open the Store, so try each one.
+    BASE=""
+    for c in python3 python; do
+        if command -v "$c" >/dev/null && "$c" -c 'import sys, venv; sys.exit(sys.version_info < (3, 8))' 2>/dev/null; then
+            BASE="$c"; break
+        fi
+    done
     [ -n "$BASE" ] || { echo "Python 3 not found: install it first." >&2; exit 1; }
     "$BASE" -m venv "$VENV"
     PY="$VENV/bin/python"; [ -x "$PY" ] || PY="$VENV/Scripts/python.exe"
